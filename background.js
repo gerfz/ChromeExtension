@@ -75,7 +75,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 // Check schedule and send notifications for selected event/map combinations
 function checkAndSendNotifications(selectedEvents, selectedMaps) {
     const now = new Date();
-    const currentHour = now.getHours();
+    const currentHour = now.getUTCHours(); // Use UTC time to match EVENT_SCHEDULE
     const timeKey = `${currentHour}:00`;
 
     // Get events for current hour
@@ -85,23 +85,25 @@ function checkAndSendNotifications(selectedEvents, selectedMaps) {
         return;
     }
 
-    // If no selections, notify for all events
-    const notifyAllEvents = selectedEvents.length === 0;
-    const notifyAllMaps = selectedMaps.length === 0;
+    // Require at least 1 event AND 1 map to be selected
+    if (selectedEvents.length === 0 || selectedMaps.length === 0) {
+        console.log('No events or maps selected - skipping notifications');
+        return;
+    }
 
     // Check each map for events
     Object.keys(hourEvents).forEach(map => {
         const events = hourEvents[map];
 
-        // Skip if map not selected (unless all maps selected)
-        if (!notifyAllMaps && !selectedMaps.includes(map)) {
+        // Skip if map not selected
+        if (!selectedMaps.includes(map)) {
             return;
         }
 
         // Check each event on this map
         events.forEach(event => {
-            // Skip if event not selected (unless all events selected)
-            if (!notifyAllEvents && !selectedEvents.includes(event)) {
+            // Skip if event not selected
+            if (!selectedEvents.includes(event)) {
                 return;
             }
 
@@ -165,7 +167,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
             // Send a test notification
             const now = new Date();
-            const currentHour = now.getHours();
+            const currentHour = now.getUTCHours(); // Use UTC time to match EVENT_SCHEDULE
             const timeKey = `${currentHour}:00`;
 
             console.log('Current time key:', timeKey);
@@ -175,7 +177,24 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             console.log('Hour events:', hourEvents);
 
             if (hourEvents) {
-                // Find ALL matching event/map combinations (removed break statements)
+                // Require at least 1 event AND 1 map to be selected
+                if (selectedEvents.length === 0 || selectedMaps.length === 0) {
+                    console.log('No events or maps selected');
+                    chrome.notifications.create({
+                        type: 'basic',
+                        iconUrl: 'icon.png',
+                        title: 'ARC Event Test',
+                        message: 'Please select at least 1 event and 1 map to receive notifications!',
+                        priority: 1,
+                        requireInteraction: false,
+                        silent: false
+                    });
+                    playNotificationSound();
+                    sendResponse({ success: true });
+                    return;
+                }
+
+                // Find ALL matching event/map combinations
                 let sentCount = 0;
                 for (const map of Object.keys(hourEvents)) {
                     const events = hourEvents[map];
@@ -183,8 +202,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
                     for (const event of events) {
                         // Check if this combination should trigger
-                        const shouldNotify = (selectedEvents.length === 0 || selectedEvents.includes(event)) &&
-                            (selectedMaps.length === 0 || selectedMaps.includes(map));
+                        const shouldNotify = selectedEvents.includes(event) && selectedMaps.includes(map);
 
                         console.log(`Event ${event} on ${map}: shouldNotify = ${shouldNotify}`);
 

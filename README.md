@@ -1,103 +1,196 @@
-# Hourly Event Notifications - Chrome Extension
+# 📅 ARC Event Schedule Tracker
 
-A Chrome extension that sends Windows notifications every hour with random events.
+Track all ARC game events across all maps in real-time! Available as both a **Chrome Extension** (with notifications) and a **Website** (view-only).
 
-## Features
-- 🔔 Hourly notifications at the start of every hour
-- 🎲 Random event selection from 8 events
-- 🔊 Subtle notification sound
-- 🎨 Modern, premium dark-themed popup UI
-- ⚙️ Easy enable/disable toggle
-- ⏱️ Real-time countdown to next notification
+---
 
-## Events
+## 🚀 Quick Start
+
+### Option 1: Chrome Extension (Recommended - Get Notifications!)
+
+1. **Download** this repository
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable **Developer mode** (top right toggle)
+4. Click **Load unpacked**
+5. Select the `ChromeExtension` folder
+6. Done! Click the extension icon to get started
+
+### Option 2: Website (View & Notifications)
+
+**⚠️ Important**: For notifications to work, you must run the website through a local server (not by opening the HTML file directly).
+
+**Easy Setup**:
+1. Open terminal/command prompt
+2. Navigate to the `website` folder:
+   ```
+   cd ChromeExtension/website
+   ```
+3. Start a local server:
+   - **Python** (if installed): `python -m http.server 8000`
+   - **Node.js** (if installed): `npx http-server -p 8000`
+4. Open browser and go to: `http://localhost:8000`
+5. That's it! Notifications will now work
+
+**Why?** Chrome blocks web notifications from `file://` URLs for security. Using `http://localhost` solves this.
+
+---
+
+## ✨ Features
+
+### Chrome Extension
+- ✅ **Desktop Notifications** - Get alerted when events start
+- ✅ **Custom Filters** - Choose which events and maps to track
+- ✅ **Live Updates** - Schedule updates in real-time
+- ✅ **Timezone Support** - View times in your local timezone
+- ✅ **Visual Highlights** - Orange badges show your selected notifications
+- ✅ **Works Offline** - No internet needed after installation
+
+### Website
+- ✅ **Desktop Notifications** - Get alerted when events start (requires local server)
+- ✅ **Custom Filters** - Choose which events and maps to track
+- ✅ **View Full Schedule** - See all events at a glance
+- ✅ **Timezone Support** - Convert to your local time
+- ✅ **Live Updates** - Schedule updates in real-time
+- ⚠️ **Requires Local Server** - Must run through `http://localhost` for notifications
+- ⚠️ **Keep Tab Open** - Browser and tab must stay open for notifications
+
+---
+
+## 📖 How to Use the Chrome Extension
+
+### Step 1: Select Events & Maps
+1. Click the extension icon
+2. Click on events you want to track (e.g., "Probes", "Blooms")
+3. Click on maps you want to track (e.g., "DAM", "SPACEPORT")
+4. **Important**: You must select at least 1 event AND 1 map
+
+### Step 2: Enable Notifications
+- Toggle **"Enable Notifications"** to ON
+- Click **"Test Notification"** to verify it works
+
+### Step 3: View Schedule
+- Click **"📅 View Event Schedule"**
+- Orange badges = events you'll be notified about
+- Green highlighted row = current hour
+
+### Step 4: Adjust Timezone (Optional)
+- Select your timezone from the dropdown
+- Schedule automatically converts to your local time
+
+---
+
+## 🎯 Example Setup
+
+**Goal**: Get notified for Probes events on DAM
+
+1. Open extension popup
+2. Click "Probes" (turns green)
+3. Click "DAM" (turns green)
+4. Toggle "Enable Notifications" ON
+5. Done! You'll get a notification when Probes spawns on DAM
+
+---
+
+## 🗺️ Available Maps
+- DAM
+- BURIED CITY
+- SPACEPORT
+- BLUE GATE
+- STELLA MONTIS
+
+## 🎮 Available Events
 - Harvester
-- Husk
-- Probe
+- Husks
+- Probes
 - Caches
-- Lush
+- Blooms
 - Night
 - Storm
 - Matriarch
+- Tower
+- Bunker
 
-## Installation
+---
 
-1. **Download/Clone** this extension folder
+## ⚙️ How It Works
 
-2. **Add Notification Sound** (Optional but recommended)
-   - Download a subtle notification sound (1-2 seconds, soft chime)
-   - Save it as `notification.mp3` in this folder
-   - See `SOUND_SETUP.md` for details
+### Event Schedule
+- All times are stored in **UTC**
+- Schedule automatically converts to your selected timezone
+- Events are checked every hour on the hour
+- Notifications trigger at the start of each event
 
-3. **Open Chrome Extensions**
-   - Navigate to `chrome://extensions/`
-   - Enable "Developer mode" (toggle in top-right corner)
+### Notification Logic
+- **Both required**: You must select at least 1 event AND 1 map
+- **Combinations**: Only selected event+map pairs trigger notifications
+- **Example**: If you select "Probes" + "DAM", you'll only get notified for Probes on DAM (not Probes on other maps)
 
-4. **Load Extension**
-   - Click "Load unpacked"
-   - Select the `ChromeExtension` folder
-   - The extension icon should appear in your toolbar
+---
 
-5. **Configure**
-   - Click the extension icon to open the popup
-   - Toggle notifications on/off as needed
-   - View countdown to next notification
+## 🛠️ Troubleshooting
 
-## How It Works
+### No Notifications?
+1. Check that notifications are enabled in Chrome settings
+2. Make sure you selected at least 1 event AND 1 map
+3. Click "Test Notification" to verify it works
+4. Check that the extension has notification permissions
 
-- **Hourly Alarms**: Uses Chrome's alarm API to trigger at the start of every hour
-- **Random Selection**: Randomly picks one event from the list each hour
-- **Windows Notifications**: Displays native Windows notifications with event name and time
-- **Persistent Settings**: Your enable/disable preference is saved using Chrome storage
+### Wrong Times?
+1. Make sure you selected the correct timezone
+2. Remember: The schedule is in UTC by default
+3. Your PC time doesn't affect the schedule (it uses UTC)
 
-## Files
+### Orange Badges Not Showing?
+1. You must select at least 1 event AND 1 map
+2. Orange only appears for selected combinations
+3. If nothing is selected, no badges are orange
 
-- `manifest.json` - Extension configuration
-- `background.js` - Service worker for alarms and notifications
-- `popup.html` - Popup interface structure
-- `popup.js` - Popup logic and settings management
-- `popup.css` - Premium dark theme styling
-- `icon.png` - Extension icon
-- `notification.mp3` - Notification sound (you need to add this)
+---
 
-## Troubleshooting
+## 📂 File Structure
 
-**Notifications not appearing?**
-- Check if notifications are enabled in the popup
-- Ensure Chrome has notification permissions
-- Check Windows notification settings
+```
+ChromeExtension/
+├── manifest.json          # Extension configuration
+├── background.js          # Notification logic
+├── popup.html/css/js      # Main extension UI
+├── schedule.html/css/js   # Full schedule view
+├── icon.png              # Extension icon
+└── README.md             # This file
 
-**Sound not playing?**
-- Make sure `notification.mp3` exists in the extension folder
-- Check your system volume
-- The extension will work without sound if the file is missing
-
-**Extension not loading?**
-- Make sure all files are in the same folder
-- Check for errors in `chrome://extensions/` (click "Errors" button)
-- Reload the extension after making changes
-
-## Customization
-
-**Add More Events:**
-Edit the `EVENTS` array in `background.js`:
-```javascript
-const EVENTS = [
-  'Harvester',
-  'Husk',
-  'YourNewEvent',
-  // ... add more
-];
+website/
+├── index.html            # Standalone web version
+├── styles.css            # Website styling
+└── script.js             # Website logic
 ```
 
-**Change Notification Frequency:**
-Modify the `periodInMinutes` value in `background.js` (line 31)
+---
 
-**Adjust Sound Volume:**
-Change the `audio.volume` value in `background.js` (line 68) - currently set to 0.3 (30%)
+## 🔄 Updates
 
-## Version
-1.0.0
+To update the event schedule:
+1. Edit `EVENT_SCHEDULE` in `background.js`
+2. Copy the same data to `schedule.js`
+3. Copy the same data to `website/script.js`
+4. Reload the extension
 
-## License
-Free to use and modify
+---
+
+## 💡 Tips
+
+- **Keep schedule page open** on a second monitor to see live updates
+- **Test notifications first** before relying on them
+- **Select specific combinations** to avoid notification spam
+- **Use the website** if you just want to view the schedule without notifications
+
+---
+
+## 📝 License
+
+Free to use and modify for personal use.
+
+---
+
+## 🙏 Credits
+
+Event data sourced from the ARC game community.

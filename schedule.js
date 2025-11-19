@@ -1,174 +1,30 @@
 // Event schedule data - Times in UTC
 // Each map can have multiple events (Minor + Major)
 const EVENT_SCHEDULE = {
-    "0:00": {
-        "DAM": ["Matriarch"],
-        "BURIED CITY": [],
-        "SPACEPORT": ["Harvester"],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "1:00": {
-        "DAM": [],
-        "BURIED CITY": [],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Night"],
-        "STELLA MONTIS": []
-    },
-    "2:00": {
-        "DAM": [],
-        "BURIED CITY": ["Night"],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Husks"],
-        "STELLA MONTIS": []
-    },
-    "3:00": {
-        "DAM": ["Blooms"],
-        "BURIED CITY": [],
-        "SPACEPORT": ["Matriarch", "Night"],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "4:00": {
-        "DAM": [],
-        "BURIED CITY": [],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Night"],
-        "STELLA MONTIS": []
-    },
-    "5:00": {
-        "DAM": [],
-        "BURIED CITY": ["Storm", "Husks"],
-        "SPACEPORT": [],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "6:00": {
-        "DAM": ["Probes"],
-        "BURIED CITY": [],
-        "SPACEPORT": ["Night", "Tower"],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "7:00": {
-        "DAM": [],
-        "BURIED CITY": [],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Storm"],
-        "STELLA MONTIS": []
-    },
-    "8:00": {
-        "DAM": ["Night"],
-        "BURIED CITY": ["Blooms"],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Probes"],
-        "STELLA MONTIS": []
-    },
-    "9:00": {
-        "DAM": ["Harvester"],
-        "BURIED CITY": [],
-        "SPACEPORT": ["Probes"],
-        "BLUE GATE": ["Blooms"],
-        "STELLA MONTIS": []
-    },
-    "10:00": {
-        "DAM": ["Husks"],
-        "BURIED CITY": [],
-        "SPACEPORT": [],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "11:00": {
-        "DAM": ["Storm"],
-        "BURIED CITY": ["Probes"],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Matriarch"],
-        "STELLA MONTIS": []
-    },
-    "12:00": {
-        "DAM": ["Probes"],
-        "BURIED CITY": [],
-        "SPACEPORT": ["Blooms"],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "13:00": {
-        "DAM": [],
-        "BURIED CITY": ["Night"],
-        "SPACEPORT": [],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "14:00": {
-        "DAM": ["Night"],
-        "BURIED CITY": ["Husks"],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Caches"],
-        "STELLA MONTIS": []
-    },
-    "15:00": {
-        "DAM": [],
-        "BURIED CITY": [],
-        "SPACEPORT": ["Night", "Caches"],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "16:00": {
-        "DAM": ["Harvester"],
-        "BURIED CITY": [],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Storm"],
-        "STELLA MONTIS": []
-    },
-    "17:00": {
-        "DAM": ["Blooms"],
-        "BURIED CITY": ["Storm", "Blooms"],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Harvester"],
-        "STELLA MONTIS": []
-    },
-    "18:00": {
-        "DAM": [],
-        "BURIED CITY": [],
-        "SPACEPORT": ["Night", "Harvester"],
-        "BLUE GATE": ["Husks"],
-        "STELLA MONTIS": []
-    },
-    "19:00": {
-        "DAM": [],
-        "BURIED CITY": [],
-        "SPACEPORT": ["Bunker"],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "20:00": {
-        "DAM": [],
-        "BURIED CITY": ["Night"],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Night"],
-        "STELLA MONTIS": []
-    },
-    "21:00": {
-        "DAM": ["Matriarch"],
-        "BURIED CITY": ["Night", "Caches"],
-        "SPACEPORT": ["Matriarch"],
-        "BLUE GATE": [],
-        "STELLA MONTIS": []
-    },
-    "22:00": {
-        "DAM": [],
-        "BURIED CITY": [],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Night", "Storm"],
-        "STELLA MONTIS": []
-    },
-    "23:00": {
-        "DAM": ["Caches", "Storm"],
-        "BURIED CITY": ["Probes"],
-        "SPACEPORT": [],
-        "BLUE GATE": ["Matriarch"],
-        "STELLA MONTIS": []
-    }
+    "0:00": { "DAM": ["Matriarch"], "BURIED CITY": [], "SPACEPORT": ["Harvester"], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "1:00": { "DAM": [], "BURIED CITY": [], "SPACEPORT": [], "BLUE GATE": ["Night"], "STELLA MONTIS": [] },
+    "2:00": { "DAM": [], "BURIED CITY": ["Night"], "SPACEPORT": [], "BLUE GATE": ["Husks"], "STELLA MONTIS": [] },
+    "3:00": { "DAM": ["Blooms"], "BURIED CITY": [], "SPACEPORT": ["Matriarch", "Night"], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "4:00": { "DAM": [], "BURIED CITY": [], "SPACEPORT": [], "BLUE GATE": ["Night"], "STELLA MONTIS": [] },
+    "5:00": { "DAM": [], "BURIED CITY": ["Storm", "Husks"], "SPACEPORT": [], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "6:00": { "DAM": ["Probes"], "BURIED CITY": [], "SPACEPORT": ["Night", "Tower"], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "7:00": { "DAM": [], "BURIED CITY": [], "SPACEPORT": [], "BLUE GATE": ["Storm"], "STELLA MONTIS": [] },
+    "8:00": { "DAM": ["Night"], "BURIED CITY": ["Blooms"], "SPACEPORT": [], "BLUE GATE": ["Probes"], "STELLA MONTIS": [] },
+    "9:00": { "DAM": ["Harvester"], "BURIED CITY": [], "SPACEPORT": ["Probes"], "BLUE GATE": ["Blooms"], "STELLA MONTIS": [] },
+    "10:00": { "DAM": ["Husks"], "BURIED CITY": [], "SPACEPORT": [], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "11:00": { "DAM": ["Storm"], "BURIED CITY": ["Probes"], "SPACEPORT": [], "BLUE GATE": ["Matriarch"], "STELLA MONTIS": [] },
+    "12:00": { "DAM": ["Probes"], "BURIED CITY": [], "SPACEPORT": ["Blooms"], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "13:00": { "DAM": [], "BURIED CITY": ["Night"], "SPACEPORT": [], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "14:00": { "DAM": ["Night"], "BURIED CITY": ["Husks"], "SPACEPORT": [], "BLUE GATE": ["Caches"], "STELLA MONTIS": [] },
+    "15:00": { "DAM": [], "BURIED CITY": [], "SPACEPORT": ["Night", "Caches"], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "16:00": { "DAM": ["Harvester"], "BURIED CITY": [], "SPACEPORT": [], "BLUE GATE": ["Storm"], "STELLA MONTIS": [] },
+    "17:00": { "DAM": ["Blooms"], "BURIED CITY": ["Storm", "Blooms"], "SPACEPORT": [], "BLUE GATE": ["Harvester"], "STELLA MONTIS": [] },
+    "18:00": { "DAM": [], "BURIED CITY": [], "SPACEPORT": ["Night", "Harvester"], "BLUE GATE": ["Husks"], "STELLA MONTIS": [] },
+    "19:00": { "DAM": [], "BURIED CITY": [], "SPACEPORT": ["Bunker"], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "20:00": { "DAM": [], "BURIED CITY": ["Night"], "SPACEPORT": [], "BLUE GATE": ["Night"], "STELLA MONTIS": [] },
+    "21:00": { "DAM": ["Matriarch"], "BURIED CITY": ["Night", "Caches"], "SPACEPORT": ["Matriarch"], "BLUE GATE": [], "STELLA MONTIS": [] },
+    "22:00": { "DAM": [], "BURIED CITY": [], "SPACEPORT": [], "BLUE GATE": ["Night", "Storm"], "STELLA MONTIS": [] },
+    "23:00": { "DAM": ["Caches", "Storm"], "BURIED CITY": ["Probes"], "SPACEPORT": [], "BLUE GATE": ["Matriarch"], "STELLA MONTIS": [] }
 };
 
 // Timezone offset in hours (default UTC = 0)
@@ -201,6 +57,34 @@ document.addEventListener('DOMContentLoaded', () => {
         timezoneOffset = parseInt(e.target.value);
         chrome.storage.sync.set({ timezoneOffset: timezoneOffset });
         renderSchedule();
+    });
+
+    // Listen for storage changes for live updates
+    chrome.storage.onChanged.addListener((changes, namespace) => {
+        if (namespace === 'sync') {
+            let shouldRerender = false;
+
+            if (changes.selectedEvents) {
+                selectedEvents = changes.selectedEvents.newValue || [];
+                shouldRerender = true;
+            }
+
+            if (changes.selectedMaps) {
+                selectedMaps = changes.selectedMaps.newValue || [];
+                shouldRerender = true;
+            }
+
+            if (changes.timezoneOffset) {
+                timezoneOffset = changes.timezoneOffset.newValue || 0;
+                document.getElementById('timezoneOffset').value = timezoneOffset;
+                shouldRerender = true;
+            }
+
+            // Re-render schedule if any relevant setting changed
+            if (shouldRerender) {
+                renderSchedule();
+            }
+        }
     });
 });
 
@@ -252,18 +136,11 @@ function renderSchedule() {
             row.classList.add('current-hour');
         }
 
-        // Time column - show local time
+        // Time column - show only the time (no UTC subtitle)
         const timeCell = document.createElement('td');
         timeCell.className = 'time-cell';
         const displayHour = item.localHour.toString().padStart(2, '0');
-
-        // Only add UTC time as subtitle if offset is not 0
-        if (timezoneOffset !== 0) {
-            const utcHour = item.utcHour.toString().padStart(2, '0');
-            timeCell.innerHTML = `${displayHour}:00<br><small style="color: #888; font-size: 0.75em;">UTC ${utcHour}:00</small>`;
-        } else {
-            timeCell.textContent = `${displayHour}:00`;
-        }
+        timeCell.textContent = `${displayHour}:00`;
 
         row.appendChild(timeCell);
 
@@ -293,13 +170,14 @@ function renderSchedule() {
 
 // Check if an event/map combination is selected for notifications
 function isEventSelected(event, map) {
-    // If no events or maps are selected, all are notified (so all are "selected")
-    const allEventsSelected = selectedEvents.length === 0;
-    const allMapsSelected = selectedMaps.length === 0;
+    // Require at least 1 event AND 1 map to be selected
+    if (selectedEvents.length === 0 || selectedMaps.length === 0) {
+        return false; // Nothing selected = no notifications
+    }
 
     // Check if this specific event and map are in the selection
-    const eventMatches = allEventsSelected || selectedEvents.includes(event);
-    const mapMatches = allMapsSelected || selectedMaps.includes(map);
+    const eventMatches = selectedEvents.includes(event);
+    const mapMatches = selectedMaps.includes(map);
 
     return eventMatches && mapMatches;
 }
