@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARC Event Notifications</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>⚡ ARC Event Notifications</h1>
+      <p class="subtitle">Get notified for selected events</p>
+    </div>
+
+    <div class="actions-section">
+      <button id="viewScheduleBtn" class="schedule-btn">
+        📅 View Event Schedule
+      </button>
+      <button id="testNotificationBtn" class="test-btn">
+        🔔 Test Notification
+      </button>
+    </div>
+
+    <div class="settings-section">
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Enable Notifications</span>
+          <span class="setting-description">Receive alerts for selected events</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="notificationToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="events-section">
+      <h3>Select Events</h3>
+      <p class="section-description">Click to toggle event notifications</p>
+      <div class="events-grid">
+        <div class="event-tag" data-event="Harvester">Harvester</div>
+        <div class="event-tag" data-event="Husks">Husks</div>
+        <div class="event-tag" data-event="Probes">Probes</div>
+        <div class="event-tag" data-event="Caches">Caches</div>
+        <div class="event-tag" data-event="Blooms">Blooms</div>
+        <div class="event-tag" data-event="Night">Night</div>
+        <div class="event-tag" data-event="Storm">Storm</div>
+        <div class="event-tag" data-event="Matriarch">Matriarch</div>
+        <div class="event-tag" data-event="Tower">Tower</div>
+        <div class="event-tag" data-event="Bunker">Bunker</div>
+      </div>
+    </div>
+
+    <div class="maps-section">
+      <h3>Select Maps</h3>
+      <p class="section-description">Click to toggle map notifications</p>
+      <div class="maps-grid">
+        <div class="map-tag" data-map="DAM">DAM</div>
+        <div class="map-tag" data-map="BURIED CITY">BURIED CITY</div>
+        <div class="map-tag" data-map="SPACEPORT">SPACEPORT</div>
+        <div class="map-tag" data-map="BLUE GATE">BLUE GATE</div>
+        <div class="map-tag" data-map="STELLA MONTIS">STELLA MONTIS</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Notifications run 24/7 for selected events & maps</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

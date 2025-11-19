@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 8px;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+    padding: 8px 0;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(148, 163, 184, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: #cbd5e1;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.back-btn:hover {
+    background: rgba(148, 163, 184, 0.2);
+    border-color: rgba(99, 102, 241, 0.4);
+    transform: translateY(-50%) translateX(-2px);
+}
+
+.header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2px;
+}
+
+.subtitle {
+    font-size: 10px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Controls Row */
+.controls-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Timezone Selector */
+.timezone-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.timezone-selector label {
+    font-size: 10px;
+    color: #cbd5e1;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.timezone-selector select {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 6px;
+    padding: 4px 8px;
+    color: #e2e8f0;
+    font-size: 10px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.timezone-selector select:hover {
+    background: rgba(15, 23, 42, 1);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.timezone-selector select:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+}
+
+.timezone-selector select option {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* Current Time */
+.current-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.time-label {
+    font-size: 10px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.time-value {
+    font-size: 12px;
+    font-weight: 700;
+    color: #818cf8;
+    font-family: 'Courier New', monospace;
+}
+
+/* Schedule Container */
+.schedule-container {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 0;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Custom scrollbar */
+.schedule-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.schedule-container::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+}
+
+.schedule-container::-webkit-scrollbar-thumb {
+    background: rgba(129, 140, 248, 0.5);
+    border-radius: 3px;
+}
+
+.schedule-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(129, 140, 248, 0.7);
+}
+
+/* Schedule Table */
+.schedule-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 10px;
+}
+
+.schedule-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+    backdrop-filter: blur(10px);
+}
+
+.schedule-table thead th {
+    padding: 8px 6px;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 9px;
+    color: #cbd5e1;
+    border-bottom: 2px solid rgba(129, 140, 248, 0.3);
+    white-space: nowrap;
+}
+
+.schedule-table thead th.time-col {
+    text-align: left;
+    padding-left: 12px;
+    width: 70px;
+}
+
+.schedule-table tbody {
+    overflow-y: auto;
+}
+
+.schedule-table tbody tr {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.05);
+    transition: all 0.2s ease;
+}
+
+.schedule-table tbody tr:hover {
+    background: rgba(129, 140, 248, 0.05);
+}
+
+.schedule-table tbody tr.current-hour {
+    background: linear-gradient(90deg, rgba(129, 140, 248, 0.15) 0%, rgba(192, 132, 252, 0.15) 100%);
+    border-left: 3px solid #818cf8;
+    box-shadow: inset 0 0 20px rgba(129, 140, 248, 0.1);
+}
+
+.schedule-table tbody tr.current-hour:hover {
+    background: linear-gradient(90deg, rgba(129, 140, 248, 0.2) 0%, rgba(192, 132, 252, 0.2) 100%);
+}
+
+.schedule-table tbody td {
+    padding: 5px 6px;
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid rgba(148, 163, 184, 0.05);
+}
+
+.schedule-table tbody td:last-child {
+    border-right: none;
+}
+
+.time-cell {
+    font-weight: 700;
+    color: #cbd5e1;
+    text-align: left;
+    padding-left: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.event-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #e0e7ff;
+    margin: 1px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.event-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+/* Selected event badge - highlighted with green */
+.event-badge.selected {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.3) 100%);
+    border: 1.5px solid #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4), inset 0 0 10px rgba(16, 185, 129, 0.1);
+    color: #d1fae5;
+    font-weight: 700;
+}
+
+.event-badge.selected:hover {
+    box-shadow: 0 2px 12px rgba(16, 185, 129, 0.5), inset 0 0 10px rgba(16, 185, 129, 0.1);
+}
+
+.no-event {
+    color: #475569;
+    font-weight: 500;
+    font-size: 9px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 6px;
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    flex-shrink: 0;
+}
+
+.footer p {
+    font-size: 9px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .schedule-table {
+        font-size: 8px;
+    }
+
+    .schedule-table thead th,
+    .schedule-table tbody td {
+        padding: 4px 3px;
+    }
+
+    .event-badge {
+        font-size: 7px;
+        padding: 2px 4px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header,
+.controls-row,
+.schedule-container,
+.footer {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.controls-row {
+    animation-delay: 0.1s;
+}
+
+.schedule-container {
+    animation-delay: 0.2s;
+}
+
+.footer {
+    animation-delay: 0.3s;
+}
