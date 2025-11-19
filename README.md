@@ -8,30 +8,24 @@ Track all ARC game events across all maps in real-time! Available as both a **Ch
 
 ### Option 1: Chrome Extension (Recommended - Get Notifications!)
 
-1. **Download** this repository
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable **Developer mode** (top right toggle)
-4. Click **Load unpacked**
-5. Select the `ChromeExtension` folder
-6. Done! Click the extension icon to get started
+**Download from GitHub**:
+1. Go to the GitHub repository page
+2. Click the green **"Code"** button (top right)
+3. Click **"Download ZIP"**
+4. Extract the ZIP file to a folder on your computer
+
+**Install Extension**:
+1. Open Chrome and go to `chrome://extensions/`
+2. Enable **Developer mode** (top right toggle)
+3. Click **Load unpacked**
+4. Select the extracted `ChromeExtension` folder (not the website folder inside it)
+5. Done! Click the extension icon to get started
 
 ### Option 2: Website (View & Notifications)
 
-**⚠️ Important**: For notifications to work, you must run the website through a local server (not by opening the HTML file directly).
+**🌐 Live Website**: Just visit **[https://phenomenal-eclair-ea61d6.netlify.app/](https://phenomenal-eclair-ea61d6.netlify.app/)**
 
-**Easy Setup**:
-1. Open terminal/command prompt
-2. Navigate to the `website` folder:
-   ```
-   cd ChromeExtension/website
-   ```
-3. Start a local server:
-   - **Python** (if installed): `python -m http.server 8000`
-   - **Node.js** (if installed): `npx http-server -p 8000`
-4. Open browser and go to: `http://localhost:8000`
-5. That's it! Notifications will now work
-
-**Why?** Chrome blocks web notifications from `file://` URLs for security. Using `http://localhost` solves this.
+That's it! No installation, no setup. Works on any device with a browser.
 
 ---
 
